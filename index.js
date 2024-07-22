@@ -23,7 +23,9 @@ mongoose.connect(process.env.MONGO_URI).then(() => console.log('MongoDB connecte
 // Use the routes
 app.use('/api/auth', authRouter);
 app.use('/api/task', taskRouter)
-
+app.get('/', (req, res) => {
+  res.send("Api is working")
+})
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
